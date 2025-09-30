@@ -1,24 +1,93 @@
+/* Body */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5); /* Gradient background */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
+/* Card container */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    max-width: 600px;
+    width: 100%;
+    padding: 30px 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+/* Title */
+.card-title {
+    color: #343a40;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Questions */
 #quiz-container h2 {
-  color: #343a40;
+    color: #1a1a1a;
+    margin-bottom: 20px;
 }
 
-#quiz-container .form-check {
-  text-align: left;
-  margin-bottom: 10px;
+/* Options */
+.form-check-label {
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 8px;
 }
 
-#result {
-  color: #198754;
+.form-check-input:checked + .form-check-label {
+    background-color: #007bff;
+    color: #fff;
 }
 
+/* Button */
 .btn-primary {
-  transition: 0.3s;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
+
+/* Progress */
+#progress {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+/* Result */
+#result {
+    color: #198754;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+    .card {
+        padding: 20px 15px;
+    }
+    .btn-primary {
+        width: 100%;
+    }
+}
+
