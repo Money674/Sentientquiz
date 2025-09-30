@@ -47,4 +47,40 @@ nextBtn.addEventListener("click",()=>{
     if(currentQuestion<quizData.length){
         loadQuestion();
     }else{
-        quizContainer.inner
+        quizContainer.innerHTML="";
+        nextBtn.style.display="none";
+        progressDiv.style.display="none";
+        animateScore(score,quizData.length);
+    }
+});
+
+function getResultImage(score,total){
+    if(score===total) return "https://i.imgur.com/BestScore.png";
+    else if(score>=total/2) return "https://i.imgur.com/GoodScore.png";
+    else return "https://i.imgur.com/LowScore.png";
+}
+
+function animateScore(score,total){
+    let count=0;
+    const interval = setInterval(()=>{
+        resultDiv.textContent=`You scored ${count} out of ${total}!`;
+        if(count===score){
+            clearInterval(interval);
+            const tweetText=encodeURIComponent(`I scored ${score}/${total} on the SentientAGI Quiz! Can you beat me? 🚀`);
+            const quizUrl=encodeURIComponent("https://sentientquiz-sand.vercel.app/"); 
+            const tweetUrl=`https://twitter.com/intent/tweet?text=${tweetText}&url=${quizUrl}&hashtags=SentientAGI,Quiz,AI`;
+            shareBtn.href=tweetUrl;
+            shareBtn.style.display="inline-block";
+            const img=document.createElement("img");
+            img.src=getResultImage(score,total);
+            img.alt="Quiz Result";
+            img.style.width="200px";
+            img.style.marginTop="15px";
+            resultDiv.appendChild(img);
+        }
+        count++;
+    },150);
+}
+
+// Load first question
+loadQuestion();
