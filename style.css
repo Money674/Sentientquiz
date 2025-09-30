@@ -111,10 +111,7 @@ body, html {
     .card {
         padding: 20px 15px;
     }
-    .btn-primary {
-        width: 100%;
-    }
-    #share-btn {
+    .btn-primary, #share-btn {
         width: 100%;
     }
 }
