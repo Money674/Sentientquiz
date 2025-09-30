@@ -164,9 +164,19 @@ function animateScore(score, total) {
     let count = 0;
     const interval = setInterval(() => {
         resultDiv.textContent = `You scored ${count} out of ${total}!`;
-        if (count === score) clearInterval(interval);
+        if (count === score) {
+            clearInterval(interval);
+            // Show share button
+            const shareBtn = document.getElementById("share-btn");
+            const tweetText = encodeURIComponent(`I scored ${score}/${total} on the SentientAGI Quiz! Can you beat me? 🚀`);
+            const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}&hashtags=SentientAGI,Quiz,AI`;
+            shareBtn.href = tweetUrl;
+            shareBtn.style.display = "inline-block"; // show button
+        }
         count++;
     }, 150);
+}
+
 }
 
 // Load first question
