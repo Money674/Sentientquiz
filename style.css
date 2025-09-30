@@ -1,23 +1,27 @@
-/* Body - center everything */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5); /* Gradient background */
-    min-height: 100vh;
-    display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
+/* Body and wrapper */
+body, html {
+    height: 100%;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
 }
 
-/* Card container */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Card */
 .card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     max-width: 600px;
-    width: 100%;
+    width: 90%;
     padding: 30px 20px;
-    text-align: center;      /* center content inside */
+    text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -58,7 +62,7 @@ body {
     color: #fff;
 }
 
-/* Button */
+/* Buttons */
 .btn-primary {
     background-color: #007bff;
     border: none;
@@ -69,6 +73,22 @@ body {
 
 .btn-primary:hover {
     background-color: #0056b3;
+}
+
+#share-btn {
+    background-color: #1DA1F2; /* X blue */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#share-btn:hover {
+    background-color: #0d95e8;
+    text-decoration: none;
+    color: white;
 }
 
 /* Progress */
@@ -86,28 +106,15 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-#share-btn {
-    background-color: #1DA1F2; /* X / Twitter blue */
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-#share-btn:hover {
-    background-color: #0d95e8;
-    text-decoration: none;
-    color: white;
-}
-
 /* Responsive tweaks */
 @media (max-width: 576px) {
     .card {
         padding: 20px 15px;
     }
     .btn-primary {
+        width: 100%;
+    }
+    #share-btn {
         width: 100%;
     }
 }
